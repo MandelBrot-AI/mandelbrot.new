@@ -1,0 +1,491 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-readex-pro), system-ui, -apple-system, sans-serif;
+}
+
+/* ===== Base Styles ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-readex-pro), system-ui, -apple-system, sans-serif;
+  background-color: #000;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ===== Typography ===== */
+
+.hero-title {
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+/* ===== Marquee Animation ===== */
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== Scroll Reveal ===== */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Float Animations ===== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float-0 { animation: float 6s ease-in-out infinite; }
+.animate-float-1 { animation: float 6s ease-in-out 2s infinite; }
+.animate-float-2 { animation: float 6s ease-in-out 4s infinite; }
+
+/* ===== Glow & Scanline Effects ===== */
+
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(255,255,255,0); }
+  50% { text-shadow: 0 0 40px rgba(255,255,255,0.4); }
+}
+.text-glow { animation: textGlow 4s ease-in-out infinite; }
+
+@keyframes scanline {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes ambientBreathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.7; }
+}
+
+@keyframes btnGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+  50% { box-shadow: 0 0 25px rgba(255,255,255,0.6); }
+}
+.btn-glow { animation: btnGlow 3s ease-in-out infinite; }
+
+/* STEALTH PREMIUM CARDS */
+.glass-panel {
+  background: rgba(12, 12, 12, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2rem;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel:hover {
+  background: rgba(20, 20, 20, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-8px) scale(1.01);
+}
+
+/* ADVANCED MULTI-DIRECTIONAL REVEAL CLASSES (ULTRA-PREMIUM) */
+.reveal-base {
+  opacity: 0;
+  filter: blur(var(--rb, 16px));
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+  transform-style: preserve-3d;
+}
+
+.reveal-base.is-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1) rotateX(0) rotateY(0) translateZ(0) !important;
+  filter: blur(0);
+}
+
+.reveal-up { transform: translateY(80px) scale(0.95); }
+.reveal-down { transform: translateY(-80px) scale(0.95); }
+.reveal-left { transform: translateX(80px); } 
+.reveal-right { transform: translateX(-80px); } 
+.reveal-scale { transform: scale(0.8); }
+.reveal-flip { 
+  transform: perspective(2000px) rotateX(30deg) translateY(60px) scale(0.9); 
+  transform-origin: top; 
+}
+
+/* Vertical Flow Animation */
+@keyframes flowDown {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+.wire-glow {
+  animation: flowDown 3s linear infinite;
+  background: linear-gradient(to bottom, transparent, #fff, transparent);
+}
+
+/* ===== FLOATING LETTERS ANIMATION ===== */
+
+.floating-letter {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.floating-letter:hover {
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.floating-letter.is-floating {
+  animation: airLetterFloat 4.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes airLetterFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+  /* Lift up softly into the air */
+  15% {
+    transform: translateY(-38px) translateX(6px) rotate(-6deg) scale(1.2);
+    filter: drop-shadow(0 12px 8px rgba(255, 255, 255, 0.25));
+  }
+  /* Drift and sway like in the air */
+  35% {
+    transform: translateY(-44px) translateX(-5px) rotate(4deg) scale(1.16);
+    filter: drop-shadow(0 16px 12px rgba(255, 255, 255, 0.3));
+  }
+  55% {
+    transform: translateY(-38px) translateX(7px) rotate(-4deg) scale(1.2);
+    filter: drop-shadow(0 12px 9px rgba(255, 255, 255, 0.25));
+  }
+  75% {
+    transform: translateY(-41px) translateX(-3px) rotate(3deg) scale(1.17);
+    filter: drop-shadow(0 14px 11px rgba(255, 255, 255, 0.28));
+  }
+  /* Descend very gently back to home */
+  92% {
+    transform: translateY(-6px) translateX(0px) rotate(0.5deg) scale(1.02);
+    filter: drop-shadow(0 2px 2px rgba(255, 255, 255, 0.08));
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+}
+
+/* ===== WEB SECTION CARD ANIMATIONS ===== */
+
+.web-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.web-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ----- Premium Animations for Mandelbrot Section ----- */
+
+.animated-mandelbrot {
+  animation: gentleZoom 12s ease-in-out infinite alternate;
+}
+
+@keyframes gentleZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
+}
+
+/* Subtle pulse for headings */
+.subtle-pulse {
+  animation: subtlePulse 6s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+/* ----- Floating Label Input Styles ----- */
+
+.floating-label-input {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.floating-label-input input,
+.floating-label-input textarea {
+  width: 100%;
+  padding: 1rem 0.75rem 0.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.floating-label-input input:focus,
+.floating-label-input textarea:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
+}
+
+.floating-label-input label {
+  position: absolute;
+  left: 0.75rem;
+  top: 1rem;
+  color: rgba(255,255,255,0.4);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: transparent;
+  padding: 0 0.25rem;
+}
+
+.floating-label-input input:focus + label,
+.floating-label-input input:not(:placeholder-shown) + label,
+.floating-label-input textarea:focus + label,
+.floating-label-input textarea:not(:placeholder-shown) + label {
+  top: 0.2rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.8);
+}
+
+
+.web-card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.web-card-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 10%,
+    transparent 20%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 60%,
+    rgba(255, 255, 255, 0.15) 80%,
+    transparent 100%
+  );
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  padding: 1px;
+  animation: borderRotate 4s linear infinite;
+}
+
+.web-card:hover .web-card-border {
+  opacity: 1;
+}
+
+@keyframes borderRotate {
+  to { --border-angle: 360deg; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Web section tag shimmer */
+.web-tag {
+  position: relative;
+  overflow: hidden;
+}
+
+.web-tag::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: tagShimmer 3s ease-in-out infinite;
+}
+
+@keyframes tagShimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+/* Ambient orb animations */
+.animate-web-orb-1 {
+  animation: webOrb1 8s ease-in-out infinite;
+}
+.animate-web-orb-2 {
+  animation: webOrb2 10s ease-in-out infinite;
+}
+
+@keyframes webOrb1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50% { transform: translate(-30px, 20px) scale(1.1); opacity: 0.6; }
+}
+@keyframes webOrb2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  50% { transform: translate(20px, -30px) scale(1.15); opacity: 0.5; }
+}
+
+/* Library card entrance */
+.web-library-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.web-library-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.web-library-card:hover::before {
+  opacity: 1;
+}
+
+/* ===== CONTACT SECTION ANIMATIONS ===== */
+
+/* Mouse-tracking glow */
+.contact-mouse-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 60%
+  );
+}
+
+.contact-form-card:hover .contact-mouse-glow {
+  opacity: 1;
+}
+
+/* Floating particles */
+.contact-particle {
+  animation: contactFloat linear infinite;
+}
+
+@keyframes contactFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  50% { transform: translateY(-40px) translateX(15px); opacity: 0.3; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-80px) translateX(-10px); opacity: 0; }
+}
+
+/* Input focus glow */
+.contact-input-wrapper {
+  position: relative;
+}
+
+.contact-input-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-input-wrapper.is-focused::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Scope button animated background */
+.contact-scope-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-scope-btn:hover::before {
+  opacity: 1;
+}
+
+/* Success ring pulse */
+.contact-success-ring {
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+@keyframes successPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.15); }
+  50% { box-shadow: 0 0 20px 8px rgba(255,255,255,0.1); }
+}
+
+/* Submit button shine sweep */
+.contact-submit-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.contact-submit-btn:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+

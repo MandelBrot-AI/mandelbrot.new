@@ -1,0 +1,9 @@
+export { default as HeroSection } from './HeroSection';
+export { default as MarqueeSection } from './MarqueeSection';
+export { default as StatementSection } from './StatementSection';
+export { default as CustomIntelligenceSection } from './CustomIntelligenceSection';
+export { default as LLMSection } from './LLMSection';
+export { default as WebSection } from './WebSection';
+export { default as WhyPartnerSection } from './WhyPartnerSection';
+export { default as ContactSection } from './ContactSection';
+export { default as FooterSection } from './FooterSection';
