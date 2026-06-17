@@ -34,7 +34,7 @@ export default function Navbar() {
         href="#contact"
         className="bg-white text-black text-sm font-normal rounded-full px-6 py-3 hover:bg-neutral-200 transition-colors btn-glow"
       >
-        initialize
+        Chat Now
       </a>
     </nav>
   );

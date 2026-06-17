@@ -3,17 +3,17 @@ export const NAV_LINKS = ['platform', 'agents', 'workflows', 'systems'] as const
 
 // ===== Marquee Items =====
 export const MARQUEE_ITEMS = [
-  { label: 'sys.status: optimal' },
-  { label: 'latency: 0.04ms' },
-  { label: 'active nodes: 14,092' },
-  { label: 'uptime: 99.999%' },
+  { label: 'custom AI' },
+  { label: 'workflow automation' },
+  { label: 'data: never leaves our walls' },
+  { label: 'web solutions ' },
 ] as const;
 
 // ===== Hero Statistics =====
 export const HERO_STATS = {
-  agentsDeployed: '+10k',
-  systemLatency: '0.0ms',
-  hoursSaved: '+5m',
+  agentsDeployed: '+4',
+  systemLatency: '24/7',
+  hoursSaved: '3',
 } as const;
 
 // ===== Architecture / Core Systems =====

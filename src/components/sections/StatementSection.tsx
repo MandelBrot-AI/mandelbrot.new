@@ -43,7 +43,7 @@ export default function StatementSection() {
   const bgOpacity = Math.min(0.8, scrollY * 2);
 
   return (
-    <section ref={containerRef} className="relative h-[300vh] bg-black z-20 border-b border-white/5">
+    <section ref={containerRef} className="relative h-[300vh] bg-black z-20 border-b border-white/5 -mt-[1px]">
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden perspective-[1000px]">
         {/* Glow Background */}
         <div
@@ -51,7 +51,7 @@ export default function StatementSection() {
           style={{ transform: `translate(-50%, -50%) scale(${bgScale})`, opacity: bgOpacity }}
         />
 
-        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center relative z-10 w-full -mt-[35vh]">
           {/* Phase 1: We move fast. */}
           <div
             className="absolute w-full flex flex-col items-center justify-center"

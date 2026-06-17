@@ -45,7 +45,7 @@ export default function HeroSection() {
               {HERO_STATS.agentsDeployed}
             </span>
           </div>
-          <span className="text-xs md:text-sm text-white/70 mt-1 text-right">agents deployed</span>
+          <span className="text-xs md:text-sm text-white/70 mt-1 text-right">services live</span>
         </div>
 
         {/* Stat: System Latency */}
@@ -56,7 +56,7 @@ export default function HeroSection() {
             </span>
             <DiagonalDivider className="rotate-[-20deg]" />
           </div>
-          <span className="text-xs md:text-sm text-white/70 mt-1">system latency</span>
+          <span className="text-xs md:text-sm text-white/70 mt-1">always online</span>
         </div>
 
         {/* Stat: Hours Saved */}
@@ -67,7 +67,7 @@ export default function HeroSection() {
               {HERO_STATS.hoursSaved}
             </span>
           </div>
-          <span className="text-xs md:text-sm text-white/70 mt-1 text-right">hours saved</span>
+          <span className="text-xs md:text-sm text-white/70 mt-1 text-right">tiers available</span>
         </div>
       </div>
 

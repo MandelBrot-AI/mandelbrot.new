@@ -3,7 +3,7 @@ import { MARQUEE_ITEMS } from '@/lib/constants';
 
 export default function MarqueeSection() {
   return (
-    <section className="py-8 bg-black overflow-hidden border-b border-white/10 relative z-20">
+    <section className="py-8 bg-black overflow-hidden relative z-20">
       {/* Left Fade */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
       {/* Right Fade */}
