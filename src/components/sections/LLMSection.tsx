@@ -6,6 +6,7 @@ import { Icons } from '@/components/ui';
 export default function LLMSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [entryProgress, setEntryProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +21,10 @@ export default function LLMSection() {
         p = Math.max(0, Math.min(1, p));
       }
 
+      const ep = Math.max(0, Math.min(1, 1 - (rect.top / viewportHeight)));
+
       setProgress(isNaN(p) ? 0 : p);
+      setEntryProgress(ep);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -30,7 +34,7 @@ export default function LLMSection() {
 
   // Phase calculations
   let introOpacity = 1;
-  if (progress < 0.05) introOpacity = progress * 20;
+  if (progress === 0) introOpacity = entryProgress;
   else if (progress > 0.85) introOpacity = Math.max(0, 1 - (progress - 0.85) * 10);
 
   // Horizontal Scroll Cards: 0.1 to 0.6
@@ -158,7 +162,7 @@ export default function LLMSection() {
 
               {/* The Drawing Line Desktop */}
               <div
-                className="hidden lg:block absolute top-1/2 left-0 h-[2px] bg-white shadow-[0_0_20px_#fff] -translate-y-1/2 z-0 transition-all duration-75 ease-out"
+                className="hidden lg:block absolute top-1/2 left-0 h-[2px] bg-white shadow-[0_0_20px_#fff] -translate-y-1/2 z-0"
                 style={{ width: `${lineProgress * 100}%` }}
               />
 
@@ -167,7 +171,7 @@ export default function LLMSection() {
 
               {/* The Drawing Line Mobile */}
               <div
-                className="lg:hidden absolute top-0 left-1/2 w-[2px] bg-white shadow-[0_0_20px_#fff] -translate-x-1/2 z-0 transition-all duration-75 ease-out"
+                className="lg:hidden absolute top-0 left-1/2 w-[2px] bg-white shadow-[0_0_20px_#fff] -translate-x-1/2 z-0"
                 style={{ height: `${lineProgress * 100}%` }}
               />
 

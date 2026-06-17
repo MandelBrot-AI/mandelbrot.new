@@ -92,7 +92,7 @@ export default function ContactSection() {
           <div className="text-center mb-16">
             {/* Floating letters on "Initialize Sequence" */}
             <FloatingLetters
-              text="Initialize Sequence"
+              text="Ready to start your transformation?"
               className="text-xs font-mono text-white/30 uppercase tracking-widest mb-4"
             />
             <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-6 text-glow">
@@ -139,7 +139,7 @@ export default function ContactSection() {
                   <Icons.Check className="w-8 h-8 animate-bounce" />
                 </div>
                 <h3 className="text-2xl font-medium text-white tracking-tight mb-4 text-glow">
-                  Sequence Initiated
+                  Check your inbox
                 </h3>
                 <p className="text-white/50 font-light text-base max-w-sm">
                   Our systems have received your request. An architect will reach out within 12 standard operating hours.
@@ -149,7 +149,7 @@ export default function ContactSection() {
                   onClick={() => setSubmitted(false)}
                   className="mt-8 text-xs font-mono text-white/40 hover:text-white border-b border-white/20 hover:border-white transition-all pb-1 cursor-pointer"
                 >
-                  Restart sequence
+                  Back to form
                 </button>
               </div>
             ) : (
@@ -177,7 +177,7 @@ export default function ContactSection() {
                   {/* Email */}
                   <div className="flex flex-col gap-2">
                     <label className={`text-xs font-mono uppercase tracking-wider pl-1 transition-all duration-300 ${focusedField === 'email' ? 'text-white/70' : 'text-white/40'}`}>
-                      Signal Destination
+                      Email
                     </label>
                     <div className={`contact-input-wrapper ${focusedField === 'email' ? 'is-focused' : ''}`}>
                       <input
@@ -212,11 +212,10 @@ export default function ContactSection() {
                         onClick={() => setForm({ ...form, scope: opt.id })}
                         onFocus={() => setFocusedField('scope')}
                         onBlur={() => setFocusedField(null)}
-                        className={`contact-scope-btn border rounded-xl py-3 text-sm font-light transition-all duration-300 cursor-pointer relative overflow-hidden ${
-                          form.scope === opt.id
-                            ? 'border-white bg-white text-black font-medium shadow-[0_0_20px_rgba(255,255,255,0.3)]'
-                            : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/[0.08] hover:border-white/20'
-                        }`}
+                        className={`contact-scope-btn border rounded-xl py-3 text-sm font-light transition-all duration-300 cursor-pointer relative overflow-hidden ${form.scope === opt.id
+                          ? 'border-white bg-white text-black font-medium shadow-[0_0_20px_rgba(255,255,255,0.3)]'
+                          : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/[0.08] hover:border-white/20'
+                          }`}
                         style={{ animationDelay: `${i * 100}ms` }}
                       >
                         <span className="relative z-10 flex items-center justify-center gap-2">
@@ -256,13 +255,13 @@ export default function ContactSection() {
                   {loading ? (
                     <>
                       <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                      <span>Initializing...</span>
+                      <span>Submitting...</span>
                     </>
                   ) : (
                     <>
                       {/* Sweep effect */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                      <span className="relative z-10">Initialize Sequence</span>
+                      <span className="relative z-10">Submit</span>
                     </>
                   )}
                 </button>

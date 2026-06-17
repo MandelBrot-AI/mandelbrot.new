@@ -68,7 +68,7 @@ export default function CustomIntelligenceSection() {
   ];
 
   return (
-    <section id="ai-services" className="py-32 bg-black relative z-20 overflow-visible border-b border-white/10">
+    <section id="ai-services" className="pt-32 pb-12 bg-black relative z-20 overflow-visible border-b border-white/10">
       {/* Deep Ambient Space Glows */}
       <div className="absolute top-[10%] left-0 w-[50vw] h-[50vw] bg-white/5 blur-[150px] rounded-full pointer-events-none animate-[ambientBreathe_10s_ease-in-out_infinite]" />
       <div className="absolute bottom-[20%] right-[-10%] w-[40vw] h-[40vw] bg-white/[0.03] blur-[150px] rounded-full pointer-events-none" />

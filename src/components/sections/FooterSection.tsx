@@ -11,12 +11,12 @@ export default function FooterSection() {
       <div className="grid grid-cols-[max-content_1fr] mb-32 select-none">
         <Reveal type="down" className="col-start-1">
           <h2 className="hero-title text-white font-medium text-[15vw] md:text-[13vw] leading-[0.8] tracking-tighter">
-            <FloatingLetters text="init" />
+            <FloatingLetters text="deploy" />
           </h2>
         </Reveal>
         <Reveal type="up" delay={200} className="col-start-2 row-start-2">
           <h2 className="hero-title text-white/40 font-medium text-[15vw] md:text-[13vw] leading-[0.8] tracking-tighter">
-            <FloatingLetters text="sequence" />
+            <FloatingLetters text="system" />
           </h2>
         </Reveal>
       </div>
@@ -29,7 +29,7 @@ export default function FooterSection() {
             href="#contact"
             className="bg-white text-black text-center text-sm font-normal rounded-full px-8 py-4 hover:bg-neutral-200 transition-colors w-full sm:w-auto btn-glow"
           >
-            initialize systems
+            Get in touch
           </a>
           <a
             href="#contact"
