@@ -6,14 +6,17 @@ export default function Navbar() {
   return (
     <nav className="fixed z-50 px-6 md:px-10 pt-6 top-0 left-0 right-0 flex items-center justify-between gap-4">
       {/* Logo */}
-      <div className="flex items-center gap-2 bg-neutral-900/90 backdrop-blur rounded-full pl-4 pr-6 py-3 border border-white/5">
-        <svg viewBox="0 0 256 256" className="h-5 w-5">
-          <path
-            d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"
-            fill="#ffffff"
-          />
+      <div className="flex items-center gap-3">
+        <svg viewBox="0 0 120 100" className="h-8 w-[38px] text-white" fill="currentColor">
+          <path d="M 42 20 L 80 20 A 16 16 0 0 1 96 36 L 76 76 L 68 60 L 80 36 L 50 36 Z" />
+          <path d="M 78 80 L 40 80 A 16 16 0 0 1 24 64 L 44 24 L 52 40 L 40 64 L 70 64 Z" />
         </svg>
-        <span className="text-white text-sm font-normal tracking-tight">mandelbrot</span>
+        <div className="flex flex-col justify-center">
+          <span className="text-white text-xl font-semibold leading-none tracking-wide">Mandelbrot</span>
+          <span className="text-white/50 text-[9px] font-bold tracking-[0.16em] uppercase leading-tight mt-1">
+            Automating the Future
+          </span>
+        </div>
       </div>
 
       {/* Navigation Links */}

@@ -56,7 +56,7 @@ export default function FooterSection() {
             <span className="text-xs uppercase tracking-widest text-white/30">sys.status</span>
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
           </div>
-          <p>© 2026 mandelbrot. all rights reserved.</p>
+          <p>© 2026 Mandelbrot. all rights reserved.</p>
         </Reveal>
       </div>
     </footer>
