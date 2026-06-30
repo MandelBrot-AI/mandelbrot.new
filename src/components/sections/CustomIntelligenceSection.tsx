@@ -68,18 +68,18 @@ export default function CustomIntelligenceSection() {
   ];
 
   return (
-    <section id="ai-services" className="pt-32 pb-12 bg-black relative z-20 overflow-visible border-b border-white/10">
+    <section id="ai-services" className="pt-20 md:pt-32 pb-8 md:pb-12 bg-black relative z-30 overflow-visible border-b border-white/10 -mt-[25vh] md:-mt-[20vh] lg:-mt-[15vh]">
       {/* Deep Ambient Space Glows */}
       <div className="absolute top-[10%] left-0 w-[50vw] h-[50vw] bg-white/5 blur-[150px] rounded-full pointer-events-none animate-[ambientBreathe_10s_ease-in-out_infinite]" />
       <div className="absolute bottom-[20%] right-[-10%] w-[40vw] h-[40vw] bg-white/[0.03] blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[90rem] mx-auto px-6 md:px-10 flex flex-col lg:flex-row gap-16 lg:gap-24 relative z-10 items-start">
+      <div className="max-w-[90rem] mx-auto px-6 md:px-10 flex flex-col lg:flex-row gap-12 lg:gap-24 relative z-10 items-start">
         {/* Sticky Left Control Panel */}
         <div className="lg:w-4/12 lg:sticky lg:top-32 flex flex-col">
           <Reveal type="down">
             <div className="flex items-center gap-4 mb-8">
               <DiagonalDivider />
-              <span className="text-white/40 text-sm tracking-widest uppercase font-mono">Platform Pillars</span>
+
             </div>
             <h2 className="text-[10vw] lg:text-[5vw] font-medium tracking-tight mb-8 leading-[0.9] text-glow">
               Custom <br />
@@ -92,7 +92,7 @@ export default function CustomIntelligenceSection() {
 
             {/* Visual Data Tracker */}
             <div className="hidden lg:flex flex-col gap-4">
-              <div className="text-xs font-mono text-white/30 uppercase tracking-widest">Systems Online</div>
+
               <div className="flex gap-2 w-full max-w-[200px]">
                 {[0.2, 0.4, 0.6, 0.8, 1.0, 1.2].map((delay, idx) => (
                   <div key={idx} className="h-1.5 flex-1 rounded-full bg-white/10 overflow-hidden relative">
@@ -111,7 +111,7 @@ export default function CustomIntelligenceSection() {
         <div className="lg:w-8/12 flex flex-col w-full relative perspective-[2000px]">
           {services.map((service, i, arr) => (
             <StackedCard key={i} index={i} total={arr.length}>
-              <div className="bg-gradient-to-br from-[#161616] to-[#050505] border-t-2 border-t-white/10 border-x border-x-white/5 border-b border-b-black p-8 md:p-12 flex flex-col h-full rounded-[2.5rem] shadow-[0_-20px_60px_rgba(0,0,0,1)] group relative overflow-hidden">
+              <div className="bg-gradient-to-br from-[#161616] to-[#050505] border-t-2 border-t-white/10 border-x border-x-white/5 border-b border-b-black p-6 md:p-12 flex flex-col h-full rounded-[2.5rem] shadow-[0_-20px_60px_rgba(0,0,0,1)] group relative overflow-hidden">
                 {/* Inner Ambient Glow */}
                 <div className="absolute -top-32 -right-32 w-80 h-80 bg-white/5 blur-[100px] rounded-full group-hover:bg-white/10 transition-colors duration-700 pointer-events-none" />
 
@@ -126,10 +126,7 @@ export default function CustomIntelligenceSection() {
                   </div>
 
                   {/* Technical Status Pill */}
-                  <div className="font-mono text-[10px] md:text-xs text-white/40 border border-white/10 px-3 py-1.5 rounded-full uppercase tracking-widest bg-white/5 flex items-center gap-2 group-hover:border-white/30 group-hover:text-white/80 transition-colors duration-500">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
-                    Module Active
-                  </div>
+
                 </div>
 
                 <h3 className="text-3xl md:text-4xl font-medium text-white tracking-tight mb-8 relative z-10 group-hover:text-glow transition-all duration-300">

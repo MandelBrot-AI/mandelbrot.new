@@ -23,7 +23,7 @@ export default function WhyPartnerSection() {
   ];
 
   return (
-    <section id="why-mandelbrot" className="py-40 bg-[#050505] relative border-b border-white/10 overflow-hidden">
+    <section id="why-mandelbrot" className="py-24 md:py-40 bg-[#050505] relative border-b border-white/10 overflow-hidden">
       {/* Background Parallax Ticker */}
       <Parallax speed={-0.1} className="absolute top-[30%] w-full flex justify-center pointer-events-none mix-blend-screen opacity-[0.02]">
         <span className="text-[25vw] font-bold tracking-tighter leading-none select-none text-white">PARTNER</span>
@@ -32,7 +32,7 @@ export default function WhyPartnerSection() {
       <div className="max-w-[90rem] mx-auto px-6 md:px-10 relative z-10">
         {/* Header */}
         <Reveal type="scale" threshold={0.1}>
-          <div className="flex flex-col items-center text-center mb-24">
+          <div className="flex flex-col items-center text-center mb-16 md:mb-24">
             <span className="text-xs font-mono text-white/30 uppercase tracking-widest mb-4">Engineering Standards</span>
             <h2 className="text-[10vw] lg:text-[5vw] font-medium tracking-tight mb-8 leading-[0.9] text-glow">
               Why Mandelbrot

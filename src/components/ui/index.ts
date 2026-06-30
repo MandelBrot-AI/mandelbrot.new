@@ -7,3 +7,4 @@ export { default as Parallax } from './Parallax';
 export { default as StackedCard } from './StackedCard';
 export { default as FloatingLetters } from './FloatingLetters';
 export { default as WebCanvas } from './WebCanvas';
+export { default as SmoothScrolling } from './SmoothScrolling';

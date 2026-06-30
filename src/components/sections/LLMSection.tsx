@@ -7,8 +7,13 @@ export default function LLMSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [entryProgress, setEntryProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize, { passive: true });
+    
     const handleScroll = () => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
@@ -29,7 +34,10 @@ export default function LLMSection() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   // Phase calculations
@@ -39,7 +47,8 @@ export default function LLMSection() {
 
   // Horizontal Scroll Cards: 0.1 to 0.6
   const hScrollProgress = Math.max(0, Math.min(1, (progress - 0.1) / 0.5));
-  const hTranslate = hScrollProgress * -120; // Scroll left
+  const maxTranslate = isMobile ? -260 : -120; // Need to scroll more vw on mobile to see all cards
+  const hTranslate = hScrollProgress * maxTranslate;
 
   let hOpacity = 1;
   if (progress < 0.1) hOpacity = progress * 10;
@@ -128,7 +137,7 @@ export default function LLMSection() {
           ].map((prop, i) => (
             <div
               key={i}
-              className="w-[80vw] md:w-[400px] shrink-0 border border-white/10 bg-black/80 backdrop-blur-md p-10 h-[400px] flex flex-col justify-between hover:bg-white/5 hover:border-white/30 transition-all duration-300 rounded-[2rem] shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+              className="w-[85vw] sm:w-[80vw] md:w-[400px] shrink-0 border border-white/10 bg-black/80 backdrop-blur-md p-6 md:p-10 h-[380px] md:h-[400px] flex flex-col justify-between hover:bg-white/5 hover:border-white/30 transition-all duration-300 rounded-[2rem] shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
             >
               <div className="flex justify-between items-start">
                 <div className="text-white/20 font-mono text-xl">0{i + 1} //</div>

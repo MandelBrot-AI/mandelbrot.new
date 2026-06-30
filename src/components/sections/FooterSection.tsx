@@ -5,6 +5,7 @@ import { Reveal, FloatingLetters } from '@/components/ui';
 import { SOCIAL_LINKS } from '@/lib/constants';
 
 export default function FooterSection() {
+
   return (
     <footer className="bg-black pt-32 pb-10 px-6 md:px-10 relative z-20 border-t border-white/10 overflow-hidden">
       {/* Large Title */}
@@ -31,12 +32,7 @@ export default function FooterSection() {
           >
             Get in touch
           </a>
-          <a
-            href="#contact"
-            className="bg-neutral-900/90 text-center backdrop-blur border border-white/20 text-white text-sm font-normal rounded-full px-8 py-4 hover:bg-white/10 transition-colors w-full sm:w-auto"
-          >
-            book architecture audit
-          </a>
+
         </Reveal>
 
         {/* Links & Status */}
@@ -53,8 +49,8 @@ export default function FooterSection() {
             ))}
           </div>
           <div className="flex items-center gap-3 justify-end mb-2">
-            <span className="text-xs uppercase tracking-widest text-white/30">sys.status</span>
-            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+
+
           </div>
           <p>© 2026 mandelbrot. all rights reserved.</p>
         </Reveal>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Reveal, Icons, FloatingLetters } from '@/components/ui';
+import { submitContactForm } from '@/app/actions/contact';
 
 /* Tiny floating particle for form background ambiance */
 interface FloatParticle {
@@ -17,6 +18,7 @@ export default function ContactSection() {
   const [form, setForm] = useState({ name: '', email: '', scope: 'llm', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [particles, setParticles] = useState<FloatParticle[]>([]);
   const formRef = useRef<HTMLDivElement>(null);
@@ -44,17 +46,27 @@ export default function ContactSection() {
     formRef.current.style.setProperty('--mouse-y', `${y}%`);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    setError(null);
+    try {
+      const res = await submitContactForm(form);
+      if (res.success) {
+        setSubmitted(true);
+        setForm({ name: '', email: '', scope: 'llm', message: '' });
+      } else {
+        setError(res.error || 'An unexpected transmission error occurred.');
+      }
+    } catch (err: any) {
+      setError('A connection error occurred. Please verify your transmission node settings.');
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 1500);
+    }
   };
 
   return (
-    <section id="contact" className="py-32 bg-black relative overflow-hidden border-b border-white/5">
+    <section id="contact" className="py-24 md:py-32 bg-black relative overflow-hidden border-b border-white/5">
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-white/[0.02] blur-[150px] rounded-full pointer-events-none" />
 
@@ -146,7 +158,10 @@ export default function ContactSection() {
                 </p>
                 <button
                   type="button"
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setError(null);
+                  }}
                   className="mt-8 text-xs font-mono text-white/40 hover:text-white border-b border-white/20 hover:border-white transition-all pb-1 cursor-pointer"
                 >
                   Back to form
@@ -199,7 +214,7 @@ export default function ContactSection() {
                   <label className={`text-xs font-mono uppercase tracking-wider pl-1 transition-all duration-300 ${focusedField === 'scope' ? 'text-white/70' : 'text-white/40'}`}>
                     Module Interest
                   </label>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
                     {[
                       { id: 'llm', label: 'Custom LLM', icon: '◆' },
                       { id: 'agents', label: 'AI Agents', icon: '◈' },
@@ -245,6 +260,13 @@ export default function ContactSection() {
                     />
                   </div>
                 </div>
+
+                {/* Error Message */}
+                {error && (
+                  <div className="text-red-500 text-xs font-mono bg-red-500/10 border border-red-500/20 px-5 py-4 rounded-2xl transition-all duration-300">
+                    ▲ ERROR: {error}
+                  </div>
+                )}
 
                 {/* Submit */}
                 <button

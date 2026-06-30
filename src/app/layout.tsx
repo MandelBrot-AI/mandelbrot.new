@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { Readex_Pro } from 'next/font/google';
 import './globals.css';
+import { ChatBotProvider } from '@/components/chatbot/ChatBotContext';
+import { ChatBotLayout } from '@/components/chatbot/ChatBotLayout';
+import { SmoothScrolling } from '@/components/ui';
 
 const readexPro = Readex_Pro({
   variable: '--font-readex-pro',
@@ -27,8 +30,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${readexPro.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${readexPro.variable} h-full antialiased overflow-x-hidden`}>
+      <body className="min-h-full flex flex-col overflow-x-hidden">
+        <ChatBotProvider>
+          <SmoothScrolling>
+            {children}
+            <ChatBotLayout />
+          </SmoothScrolling>
+        </ChatBotProvider>
+      </body>
     </html>
   );
 }

@@ -21,24 +21,24 @@ export default function HeroSection() {
       {/* Hero Content */}
       <div className="relative h-full w-full pointer-events-none">
         {/* Floating Title Words */}
-        <h1 className="hero-title absolute text-white font-medium text-[14vw] md:text-[13vw] left-4 md:left-10 top-[18%] pointer-events-auto animate-float-0 text-glow">
+        <h1 className="hero-title absolute text-white font-medium text-[16vw] md:text-[13vw] left-4 md:left-10 top-[20%] md:top-[18%] pointer-events-auto animate-float-0 text-glow">
           automate
         </h1>
-        <h1 className="hero-title absolute text-white font-medium text-[14vw] md:text-[13vw] right-4 md:right-10 top-[38%] pointer-events-auto animate-float-1 text-glow">
+        <h1 className="hero-title absolute text-white font-medium text-[16vw] md:text-[13vw] right-4 md:right-10 top-[35%] md:top-[38%] pointer-events-auto animate-float-1 text-glow">
           every
         </h1>
-        <h1 className="hero-title absolute text-white font-medium text-[14vw] md:text-[13vw] left-[18%] md:left-[28%] top-[58%] pointer-events-auto animate-float-2 text-glow">
+        <h1 className="hero-title absolute text-white font-medium text-[16vw] md:text-[13vw] left-[10%] md:left-[28%] top-[50%] md:top-[58%] pointer-events-auto animate-float-2 text-glow">
           thing
         </h1>
 
         {/* Tagline */}
-        <p className="absolute left-6 md:left-10 top-[46%] max-w-[240px] text-[15px] leading-snug text-white/90 pointer-events-auto">
+        <p className="absolute left-6 md:left-10 top-[68%] md:top-[46%] max-w-[240px] text-[14px] md:text-[15px] leading-snug text-white/90 pointer-events-auto">
           we build hyper-intelligent, agentic workflows that replace manual bottlenecks with
           flawless machine precision
         </p>
 
         {/* Stat: Agents Deployed */}
-        <div className="absolute right-6 md:right-24 top-[14%] flex flex-col items-end pointer-events-auto">
+        <div className="absolute right-4 md:right-24 top-[8%] md:top-[14%] flex flex-col items-end pointer-events-auto scale-75 origin-top-right md:scale-100">
           <div className="flex items-center gap-3 justify-end">
             <DiagonalDivider />
             <span className="text-4xl md:text-5xl font-medium tracking-tight">
@@ -49,7 +49,7 @@ export default function HeroSection() {
         </div>
 
         {/* Stat: System Latency */}
-        <div className="absolute left-6 md:left-20 bottom-20 md:bottom-24 flex flex-col items-start pointer-events-auto">
+        <div className="absolute left-4 md:left-20 bottom-36 md:bottom-24 flex flex-col items-start pointer-events-auto scale-75 origin-bottom-left md:scale-100">
           <div className="flex items-center gap-3">
             <span className="text-4xl md:text-5xl font-medium tracking-tight">
               {HERO_STATS.systemLatency}
@@ -60,7 +60,7 @@ export default function HeroSection() {
         </div>
 
         {/* Stat: Hours Saved */}
-        <div className="absolute right-6 md:right-20 bottom-16 md:bottom-20 flex flex-col items-end pointer-events-auto">
+        <div className="absolute right-4 md:right-20 bottom-16 md:bottom-20 flex flex-col items-end pointer-events-auto scale-75 origin-bottom-right md:scale-100">
           <div className="flex items-center gap-3 justify-end">
             <DiagonalDivider className="rotate-[-20deg]" />
             <span className="text-4xl md:text-5xl font-medium tracking-tight">

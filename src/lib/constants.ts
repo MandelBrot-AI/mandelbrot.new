@@ -36,9 +36,9 @@ export const CORE_SYSTEMS = [
 
 // ===== Social Links =====
 export const SOCIAL_LINKS = [
-  { label: 'twitter', href: '#' },
-  { label: 'linkedin', href: '#' },
-  { label: 'github', href: '#' },
+  { label: 'x', href: ' https://x.com/mandelbrot_ai' },
+  { label: 'linkedin', href: 'https://www.linkedin.com/company/mandelbrot-ai/' },
+  { label: 'instagram', href: 'https://www.instagram.com/mandelbrot.business.ai?igsh=ZzF0a2w2bXN6dDNr' },
 ] as const;
 
 // ===== Hero Video Source =====

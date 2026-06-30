@@ -5,7 +5,7 @@ import { Icons, Reveal, WebCanvas } from '@/components/ui';
 
 export default function WebSection() {
   return (
-    <section id="web-solutions" className="py-32 bg-black relative border-b border-white/10 overflow-hidden">
+    <section id="web-solutions" className="py-24 md:py-32 bg-black relative border-b border-white/10 overflow-hidden">
       {/* Interactive particle network background */}
       <div className="absolute inset-0 z-0 opacity-40">
         <WebCanvas />
@@ -112,7 +112,7 @@ export default function WebSection() {
                   Rapid deployment of auth, payment gateways, notifications, and secure file pipelines.
                 </p>
               </div>
-              <div className="md:w-1/2 grid grid-cols-2 gap-3 w-full">
+              <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
                 {['Auth Mgmt', 'Stripe Pay', 'File Uploads', 'Slack Sync'].map((tag, i) => (
                   <div
                     key={tag}
