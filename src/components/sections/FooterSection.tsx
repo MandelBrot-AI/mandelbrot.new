@@ -52,7 +52,7 @@ export default function FooterSection() {
 
 
           </div>
-          <p>© 2026 mandelbrot. all rights reserved.</p>
+          <p>© 2026 Mandelbrot. all rights reserved.</p>
         </Reveal>
       </div>
     </footer>
